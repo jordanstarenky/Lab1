@@ -1,0 +1,45 @@
+---
+title: "Lab1"
+author: "Your Name"
+date: "2024-09-05"
+output: html_document
+---
+# Load Packages
+```{r}
+
+library(haven)
+library(dplyr)
+library(tidyr)
+library(ggplot2)
+library(ggstatsplot)
+library(psych)
+library(bruceR)
+library(ggsci)
+library(datasauRus)
+
+```
+
+# First look of descriptive statistics 
+```{r}
+
+datasaurus_dozen %>% 
+  group_by(dataset) %>%
+  dplyr::summarize(mean_x    = mean(x),
+      mean_y    = mean(y),
+      std_dev_x = sd(x),
+      std_dev_y = sd(y),
+      corr_x_y  = cor(x, y)
+    )
+
+
+```
+
+# Introduce GGplot
+```{r}
+
+ggplot(datasaurus_dozen, aes(x = x, y = y, colour = dataset))+
+    geom_point()
+
+
+```
+
