@@ -2,6 +2,7 @@
 title: "Lab1"
 author: "Your Name"
 date: "2024-09-05"
+output: "github_document"
 ---
 
 # Load Packages
