@@ -142,6 +142,6 @@ ggplot(datasaurus_dozen, aes(x = x, y = y, colour = dataset))+
 
 ![](Lab1_files/figure-gfm/unnamed-chunk-3-1.png)<!-- -->
 
-# Q1: What is the function of facet wrap? How you think you might be able to use this function in the future?
+# Q1: What is the function of facet wrap? In what situation do you think you will use this function?
 
 # Q2: The means, standard deviations, and correlations are pretty much the same, but the data pattern looks very different for each dataset. What is the implication here?
