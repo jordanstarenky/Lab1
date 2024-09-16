@@ -13,6 +13,7 @@ library(tidyr)
 library(ggplot2)
 library(datasauRus)
 library(dplyr)
+
 ```
 
 # First look of descriptive statistics 
@@ -49,9 +50,8 @@ ggplot(dino, aes(x = x, y = y))+
 
 
 # Q1: What is the function of facet wrap? In what situation do you think you will use this function? 
-
-
-
+ Facet wrap is a function that can be used to help separate things; for example, in a situation where we have multiple independent variables, we can use facet wrap to plot by condition
+ 
 
 # Q2: The means, standard deviations, and correlations are pretty much the same, but the data pattern looks very different for each dataset. What is the implication here? 
-
+This implies that descriptive statistics do not always tell the whole story, and it is crucial to always visualize the data in order to paint the full picture.
