@@ -1,14 +1,34 @@
 Lab1
 ================
-Your Name
-2024-09-05
+Jo Starenky
+2024-09-16
 
 # Load Packages
 
 ``` r
 library(haven)
+library(tidyr)
+```
+
+    ## Warning: package 'tidyr' was built under R version 4.2.3
+
+``` r
+library(ggplot2)
+```
+
+    ## Warning: package 'ggplot2' was built under R version 4.2.3
+
+``` r
+library(datasauRus)
+```
+
+    ## Warning: package 'datasauRus' was built under R version 4.2.3
+
+``` r
 library(dplyr)
 ```
+
+    ## Warning: package 'dplyr' was built under R version 4.2.3
 
     ## 
     ## Attaching package: 'dplyr'
@@ -20,88 +40,6 @@ library(dplyr)
     ## The following objects are masked from 'package:base':
     ## 
     ##     intersect, setdiff, setequal, union
-
-``` r
-library(tidyr)
-library(ggplot2)
-library(ggstatsplot)
-```
-
-    ## Warning: package 'ggstatsplot' was built under R version 4.3.3
-
-    ## You can cite this package as:
-    ##      Patil, I. (2021). Visualizations with statistical details: The 'ggstatsplot' approach.
-    ##      Journal of Open Source Software, 6(61), 3167, doi:10.21105/joss.03167
-
-``` r
-library(psych)
-```
-
-    ## Warning: package 'psych' was built under R version 4.3.3
-
-    ## 
-    ## Attaching package: 'psych'
-
-    ## The following objects are masked from 'package:ggplot2':
-    ## 
-    ##     %+%, alpha
-
-``` r
-library(bruceR)
-```
-
-    ## 
-    ## bruceR (v2023.9)
-    ## Broadly Useful Convenient and Efficient R functions
-    ## 
-    ## Packages also loaded:
-    ## ✔ data.table ✔ emmeans
-    ## ✔ dplyr      ✔ lmerTest
-    ## ✔ tidyr      ✔ effectsize
-    ## ✔ stringr    ✔ performance
-    ## ✔ ggplot2    ✔ interactions
-    ## 
-    ## Main functions of `bruceR`:
-    ## cc()             Describe()  TTEST()
-    ## add()            Freq()      MANOVA()
-    ## .mean()          Corr()      EMMEANS()
-    ## set.wd()         Alpha()     PROCESS()
-    ## import()         EFA()       model_summary()
-    ## print_table()    CFA()       lavaan_summary()
-    ## 
-    ## For full functionality, please install all dependencies:
-    ## install.packages("bruceR", dep=TRUE)
-    ## 
-    ## Online documentation:
-    ## https://psychbruce.github.io/bruceR
-    ## 
-    ## To use this package in publications, please cite:
-    ## Bao, H.-W.-S. (2023). bruceR: Broadly useful convenient and efficient R functions (Version 2023.9) [Computer software]. https://CRAN.R-project.org/package=bruceR
-
-    ## 
-    ## NEWS: A new version of bruceR (2024.6) is available (2024-06-13)!
-    ## 
-    ## ***** Please update *****
-    ## install.packages("bruceR", dep=TRUE)
-
-    ## 
-    ## These packages are dependencies of `bruceR` but not installed:
-    ## - pacman, lmtest, vars, phia, GPArotation
-    ## 
-    ## ***** Install all dependencies *****
-    ## install.packages("bruceR", dep=TRUE)
-
-``` r
-library(ggsci)
-```
-
-    ## Warning: package 'ggsci' was built under R version 4.3.3
-
-``` r
-library(datasauRus)
-```
-
-    ## Warning: package 'datasauRus' was built under R version 4.3.3
 
 # First look of descriptive statistics
 
@@ -137,10 +75,20 @@ datasaurus_dozen %>%
 
 ``` r
 ggplot(datasaurus_dozen, aes(x = x, y = y, colour = dataset))+
-    geom_point()
+    geom_point() + facet_wrap(~dataset)
 ```
 
 ![](Lab1_files/figure-gfm/unnamed-chunk-3-1.png)<!-- -->
+
+``` r
+dino<- datasaurus_dozen %>%
+  filter(dataset == "dino")
+
+ggplot(dino, aes(x = x, y = y))+
+  geom_point (color="#FF13F0") + theme_void() + labs(title = "Hi, I'm a dino!") + theme(plot.title = element_text(hjust = 0.5, face = "bold", size = 20, color = "pink"))
+```
+
+![](Lab1_files/figure-gfm/unnamed-chunk-3-2.png)<!-- -->
 
 # Q1: What is the function of facet wrap? In what situation do you think you will use this function?
 

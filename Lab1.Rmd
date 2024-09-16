@@ -1,7 +1,7 @@
 ---
 title: "Lab1"
-author: "Your Name"
-date: "2024-09-05"
+author: "Jo Starenky"
+date: "2024-09-16"
 output: "github_document"
 ---
 
@@ -9,15 +9,10 @@ output: "github_document"
 ```{r}
 
 library(haven)
-library(dplyr)
 library(tidyr)
 library(ggplot2)
-library(ggstatsplot)
-library(psych)
-library(bruceR)
-library(ggsci)
 library(datasauRus)
-
+library(dplyr)
 ```
 
 # First look of descriptive statistics 
@@ -39,7 +34,15 @@ datasaurus_dozen %>%
 ```{r}
 
 ggplot(datasaurus_dozen, aes(x = x, y = y, colour = dataset))+
-    geom_point()
+    geom_point() + facet_wrap(~dataset)
+
+dino<- datasaurus_dozen %>%
+  filter(dataset == "dino")
+
+ggplot(dino, aes(x = x, y = y))+
+  geom_point (color="#FF13F0") + theme_void() + labs(title = "Hi, I'm a dino!") + theme(plot.title = element_text(hjust = 0.5, face = "bold", size = 20, color = "pink"))
+
+
 
 
 ```
@@ -51,3 +54,4 @@ ggplot(datasaurus_dozen, aes(x = x, y = y, colour = dataset))+
 
 
 # Q2: The means, standard deviations, and correlations are pretty much the same, but the data pattern looks very different for each dataset. What is the implication here? 
+
